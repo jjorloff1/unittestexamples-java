@@ -34,6 +34,14 @@ public class AlphabetServiceTest {
 
     /**
      * This test demonstrates the typical mocking scenario.
+     *
+     * This test also uses "Triangulation":  Instead of simple testing one input (i.e. 0) it tests two or more.
+     * This is valuable, because if you are only testing one input on your happy path, then a minimum test driven
+     * implementation might involve hard coding the return statement.  Adding a second input forces your code to
+     * account for multiple scenarios and make it more likely that the simplest implementation is more flexible.
+     * Its still possible that the simplest implementation could be a switch on inputs to provide specific outputs,
+     * and if that is a legitimate concern add more tests.  Most developers will see the move toward ugly and
+     * unnecessary switch or if statements and cut those out during the refactor step.
      */
     @Test
     public void testGetUppercaseLetterByIndex() {
@@ -51,8 +59,8 @@ public class AlphabetServiceTest {
          *
          *  See below for a BAD test example that illustrates my warning above.
          */
-        when(mockDao.get(0)).thenReturn('a');
-        when(mockDao.get(25)).thenReturn('z');
+        when(mockDao.getLowercaseLetterForIndex(0)).thenReturn('a');
+        when(mockDao.getLowercaseLetterForIndex(25)).thenReturn('z');
 
         // When
         char first = service.getUppercaseLetterByIndex(0);
@@ -74,11 +82,11 @@ public class AlphabetServiceTest {
          * verifyNoMoreInteractions(mockDao).  Mockito does not recommended to use this in every test, because it
          * leads to over specified tests that can be fragile.
          *
-         * If you are using another framework like JMock you will automatically get the verifyNoMoreInteractions()
+         * If you are using another framework like JMock you will automatically getLowercaseLetterForIndex the verifyNoMoreInteractions()
          * behavior because it expects you to define all your mock interactions (expectations).
          */
-        verify(mockDao).get(0);  // Ensure that the methods you expected to be executed were actually executed
-        verify(mockDao).get(25);
+        verify(mockDao).getLowercaseLetterForIndex(0);  // Ensure that the methods you expected to be executed were actually executed
+        verify(mockDao).getLowercaseLetterForIndex(25);
     }
 
     /**

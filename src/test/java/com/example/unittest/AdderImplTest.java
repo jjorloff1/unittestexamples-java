@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  *      these purposefully do not do this so that they could demonstrate the Given ... When ... Then approach)
  * 2. (Green) Write the code in your Object Under Test to pass the test.
  *    * Write just enough code to pass the test in the quickest way possible, committing whatever coding sins
- *      necessary to get it to pass as quickly as possible.
+ *      necessary to getLowercaseLetterForIndex it to pass as quickly as possible.
  * 3. (Refactor) Clean up, remove duplication, inefficiencies, and waste in your code.  Abstract where necessary.
  *    Add documentation and bring code into compliance with code style standards.  Very simple code may already
  *    be in its refactored state, but most code can use a little tidying.

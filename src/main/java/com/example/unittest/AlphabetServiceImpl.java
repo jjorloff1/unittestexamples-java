@@ -8,7 +8,7 @@ public class AlphabetServiceImpl implements AlphabetService {
     private AlphabetDao dao;
 
     public char getUppercaseLetterByIndex(int i) {
-        return Character.toUpperCase(dao.get(i));
+        return Character.toUpperCase(dao.getLowercaseLetterForIndex(i));
     }
 
     public AlphabetSong updateAlphabetSong(AlphabetSong song) {

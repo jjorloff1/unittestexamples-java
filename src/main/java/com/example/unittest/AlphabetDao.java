@@ -11,6 +11,6 @@ package com.example.unittest;
  * as a proxy for that object.
  */
 public interface AlphabetDao {
-    char get(int i);
+    char getLowercaseLetterForIndex(int i);
     AlphabetSong updateAndReturn(AlphabetSong existingSong);
 }
